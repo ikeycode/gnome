@@ -1,0 +1,27 @@
+#
+# SPDX-FileCopyrightText: © 2020-2022 Serpent OS Developers
+#
+# SPDX-License-Identifier: Zlib
+#
+name        : vala
+version     : 0.56.3
+release     : 1
+homepage    : https://download.gnome.org/sources/vala/0.56
+upstreams   :
+    - https://download.gnome.org/sources/vala/0.56/vala-0.56.3.tar.xz : e1066221bf7b89cb1fa7327a3888645cb33b604de3bf45aa81132fd040b699bf
+summary     : GObject based modern programming language
+description : |
+    Vala is a programming language using modern high level abstractions without imposing additional runtime requirements and without using a different ABI compared to applications and libraries written in C. Vala uses the GObject type system and has additional code generation routines that make targeting the GNOME stack simple. Vala has many other uses where native binaries are required.
+license     :
+    - LGPL-2.1-or-later
+builddeps   :
+    - binary(bison)
+    - binary(flex)
+    - pkgconfig(glib-2.0)
+    - pkgconfig(gobject-introspection-1.0)
+setup       : |
+    %configure --disable-valadoc
+build       : |
+    %make
+install     : |
+    %make_install
